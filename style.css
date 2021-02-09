@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2? family = Poppins: wght @ 200; 300; 400; 500; 600; 700; 800; 900 & display = swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    transition: .2s;
+    display: flex;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.navigation.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.navigation .navArea {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation .navArea ul li {
+    list-style: none;
+}
+
+.navigation .navArea ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: red;
+    z-index: -1;
+    opacity: 0;
+    transition: .5s;
+}
+
+.navigation .navArea ul li:nth-child(1)::before {
+    background: #eefd18;
+}
+
+.navigation .navArea ul li:nth-child(2)::before {
+    background: #14a11b;
+}
+
+.navigation .navArea ul li:nth-child(3)::before {
+    background: #474646;
+}
+
+.navigation .navArea ul li:nth-child(4)::before {
+    background: #226622;
+}
+
+.navigation .navArea ul li:nth-child(5)::before {
+    background: #905c49;
+}
+
+.navigation .navArea ul li:nth-child(6)::before {
+    background: #720404;
+}
+
+.navigation .navArea ul li:hover::before {
+    opacity: 1;
+}
+
+.navigation .navArea ul li a {
+    font-size: 3em;
+    font-weight: 600;
+    text-decoration: none;
+    color: #808080;
+}
+
+.navigation .navArea ul li:hover a {
+    color: #ffffff;
+}
+
+.navImg {
+    position: relative;
+    width: 50%;
+    height: 100vh;
+    background: #ff0000;
+}
+
+.navImg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menuToggle {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background: #fff url(img/menu.png);
+    z-index: 100;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #000;
+    cursor: pointer;
+}
+
+.menuToggle.active {
+    background: #fff url(img/close.png);
+    z-index: 100;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #000;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+@media(max-width:768px) {
+    .navigation .navArea {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+    }
+    .navigation .navArea ul li {
+        color: white;
+        margin: 5px 10px;
+        padding: 5px 10px;
+    }
+    .navigation .navArea ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .navigation .navArea ul li a {
+        color: #000;
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+    .navigation .navArea ul li:hover:before {
+        opacity: 0;
+    }
+    .navImg {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: #ff0000;
+        opacity: 0.7;
+    }
+}
